@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import PageNotFound from "./PageNotFound";
 import { useNavigate } from "react-router-dom";
 
-export default function Detail() {
+export default function Detail(props) {
   const [sku, setSku] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
@@ -31,7 +31,10 @@ export default function Detail() {
       <button
         disabled={!sku}
         className="btn btn-primary"
-        onClick={() => navigate("/cart")}
+        onClick={() => {
+          props.addToCart(id, sku)
+          navigate("/cart")
+        }}
       >
         Add to Cart
       </button>

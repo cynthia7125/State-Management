@@ -40,3 +40,43 @@ Rerenders happen when:
     - prop changes.
     - Parent renders.
     - Context changes.
+
+
+## Handling Immutable Data in JS
+We are trying to chaneg the role to "admin":
+1. Object assign
+- create an empty object then add theproperties
+    ```Object.assign({}, state, {role: "admin"});```
+        
+2. Object spread 
+- Whatever you place on the right is shallow copied. Values on the right override values on the left.
+    ```const newState = { ...state, role: "admin" };```
+- Can be used to copy and array as well. It requires less code than (1.)
+    ```const newUsers = [...state.users]```
+
+3. 
+    ```.map```
+
+
+By Shallow we mean nested objects are not coppied eg address in the bellow:
+```
+const user = {
+    name: 'Cory',
+    address: {
+        state: 'California'
+    }
+}
+```
+```
+// Does not clone address object!
+const userCopy = { ...user };
+```
+```
+// Clones address object as well.
+const usercopy = { ...user, address: {...user.address}}; 
+```
+### Only Clone What Changes
+Deep cloning can be done using [clone-deep]() or [lodash.merge]() which need to be avoided because:
+1. Deep cloning is expensive.(Slows the app)
+2. Deep cloning is wasteful.(You only need to clone changing objects)
+3. Deep cloning causes unnecessary renders.
