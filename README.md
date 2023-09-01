@@ -80,3 +80,17 @@ Deep cloning can be done using [clone-deep]() or [lodash.merge]() which need to 
 1. Deep cloning is expensive.(Slows the app)
 2. Deep cloning is wasteful.(You only need to clone changing objects)
 3. Deep cloning causes unnecessary renders.
+
+## Web Storage
+1. Cookie
+2. [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+3. Session Storrage
+4. Indexed DB(more complex)
+5. Cache Storage(useful offline)
+
+
+## Nullish coalescing operator (??)
+- If the left-hand side is null or undefined, use the value on the right.
+```
+    return JSON.parse(localStorage.getItem("cart")) ?? [];
+```
