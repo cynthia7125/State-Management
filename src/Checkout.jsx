@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { saveShippingAddress } from "./services/ShippingService";
+import { useCart } from "./cartContext";
 
 const STATUS = {
   IDLE: "IDLE",
@@ -14,7 +15,8 @@ const emptyAddress = {
   country: "",
 };
 
-export default function Checkout({ cart, dispatch }) {
+export default function Checkout() {
+  const { dispatch } = useCart();
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [saveError, setSaveError] = useState(null);
@@ -49,7 +51,7 @@ export default function Checkout({ cart, dispatch }) {
         await saveShippingAddress(address);
 
         // type is the same as case in cartReducer.js
-        dispatch({type: "empty"});
+        dispatch({ type: "empty" });
         setStatus(STATUS.COMPLETED);
       } catch (e) {
         setSaveError(e);
@@ -115,10 +117,9 @@ export default function Checkout({ cart, dispatch }) {
             <option value="United Kingdom">United Kingdom</option>
             <option value="USA">USA</option>
           </select>
-            <p role="alert">
-              {(touched.country || status === STATUS.SUBMITTED) &&
-                errors.country}
-            </p>
+          <p role="alert">
+            {(touched.country || status === STATUS.SUBMITTED) && errors.country}
+          </p>
         </div>
 
         <div>
