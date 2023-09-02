@@ -94,3 +94,9 @@ Deep cloning can be done using [clone-deep]() or [lodash.merge]() which need to 
 ```
     return JSON.parse(localStorage.getItem("cart")) ?? [];
 ```
+
+## Ref
+1. The reference HTML elements.
+2. They store a value that's stable between renders.
+3. They can mutate their value directly.
+4. They Don't cause a re-render when they change.
