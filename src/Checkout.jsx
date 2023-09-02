@@ -47,8 +47,11 @@ export default function Checkout({ cart, emptyCart }) {
     if (isValid) {
       try {
         await saveShippingAddress(address);
+<<<<<<< HEAD
         // type is the same as case in cartReducer.js
         // dispatch({type: "empty cart"});
+=======
+>>>>>>> parent of 4d524c9 (implement reducer to cart states.)
         emptyCart();
         setStatus(STATUS.COMPLETED);
       } catch (e) {

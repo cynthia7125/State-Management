@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import Detail from "./Detail";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
+<<<<<<< HEAD
 // import CartReducer from "./cartReducer";
 
 // let initialCart;
@@ -27,6 +28,18 @@ export default function App() {
       console.error("The cart could not be parsed into JSON.");
       return [];
     }
+=======
+
+export default function App() {
+  const [cart, setCart] = useState(() =>{
+    try {
+    
+    return JSON.parse(localStorage.getItem("cart")) ?? [];
+  } catch {
+    console.error("The cart could not be parsed into JSON")
+    return [];
+  }
+>>>>>>> parent of 4d524c9 (implement reducer to cart states.)
   });
 
   useEffect(() => localStorage.setItem("cart", JSON.stringify(cart)), [cart]);
@@ -72,10 +85,14 @@ export default function App() {
               path="/cart"
               element={<Cart cart={cart} updateQuantity={updateQuantity} />}
             />
+<<<<<<< HEAD
             <Route
               path="/checkout"
               element={<Checkout cart={cart} emptyCart={emptyCart} />}
             />
+=======
+          <Route path="/checkout" element={<Checkout cart={cart} emptyCart={emptyCart} />}></Route>
+>>>>>>> parent of 4d524c9 (implement reducer to cart states.)
           </Routes>
         </main>
       </div>

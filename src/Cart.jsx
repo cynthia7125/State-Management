@@ -25,6 +25,7 @@ export default function Cart({ cart, updateQuantity }) {
           <p>
             <select
               aria-label={`Select quantity for ${name} size ${size}`}
+<<<<<<< HEAD
               onChange={(e) =>
                 updateQuantity({
                   // type is the same as case in cartReducer.js
@@ -33,6 +34,9 @@ export default function Cart({ cart, updateQuantity }) {
                   quantity: parseInt(e.target.value),
                 })
               }
+=======
+              onChange={(e) => updateQuantity(sku, parseInt(e.target.value))}
+>>>>>>> parent of 4d524c9 (implement reducer to cart states.)
               value={quantity}
             >
               <option value="0">Remove</option>

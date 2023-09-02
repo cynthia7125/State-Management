@@ -33,8 +33,7 @@ export default function Detail(props) {
         onClick={() => {
           const sku = skuRef.current.value;
           if (!sku) return alert("Select a size.");
-          // type is the same as case in cartReducer.js
-          props.dispatch({type: "add to cart", id, sku});
+          props.addToCart(id, sku);
           navigate("/cart");
         }}
       >
