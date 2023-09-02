@@ -100,3 +100,10 @@ Deep cloning can be done using [clone-deep]() or [lodash.merge]() which need to 
 2. They store a value that's stable between renders.
 3. They can mutate their value directly.
 4. They Don't cause a re-render when they change.
+
+
+![Alt text](<Handling state.png>)
+
+# To do
+
+![Alt text](<Practice .png>)
