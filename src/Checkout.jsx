@@ -14,7 +14,7 @@ const emptyAddress = {
   country: "",
 };
 
-export default function Checkout({ cart, dispatch }) {
+export default function Checkout({ cart, emptyCart }) {
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [saveError, setSaveError] = useState(null);
@@ -48,7 +48,8 @@ export default function Checkout({ cart, dispatch }) {
       try {
         await saveShippingAddress(address);
         // type is the same as case in cartReducer.js
-        dispatch({type: "empty cart"});
+        // dispatch({type: "empty cart"});
+        emptyCart();
         setStatus(STATUS.COMPLETED);
       } catch (e) {
         setSaveError(e);
