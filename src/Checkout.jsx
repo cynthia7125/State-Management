@@ -49,7 +49,7 @@ export default function Checkout({ cart, dispatch }) {
         await saveShippingAddress(address);
 
         // type is the same as case in cartReducer.js
-        dispatch({type: "empty cart"});
+        dispatch({type: "empty"});
         setStatus(STATUS.COMPLETED);
       } catch (e) {
         setSaveError(e);
