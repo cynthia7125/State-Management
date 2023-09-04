@@ -107,3 +107,5 @@ Deep cloning can be done using [clone-deep]() or [lodash.merge]() which need to 
 # To do
 
 ![Alt text](<Practice .png>)
+[Add unit tests](https://app.pluralsight.com/course-player?clipId=c31dd0ef-0425-4e5f-833e-a5c9a01e271f)
+    - [Reference the whole course](https://app.pluralsight.com/library/courses/testing-react-components/exercise-files)
